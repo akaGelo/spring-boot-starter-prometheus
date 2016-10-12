@@ -1,0 +1,13 @@
+metadatadb.mv.db
+target/
+.classpath
+.mvn/
+.project
+.settings/
+.springBeans
+metadatadb.trace.db
+/.apt_generated/
+.factorypath
+.factorypath
+.DS_Store
+/log/
