@@ -1,14 +1,10 @@
 # spring-boot-starter-prometheus
 
-## Russian
-Это реализация metrics endpoint для Spring Boot Actuator. 
 
-Экспортирует все зарегистрированные метрики
-Возвращает HTTP Status 200 если health check в статусе UP и 500 если в статусе down или unknown. Это используется Prometheus для определения состояния 
+#Quick start
 
-
-1. Подключаем зависимость через maven
-```
+1. dependency (maven central  coming soon)
+```xml
 	<repositories>
 		<repository>
 			<id>spring-boot-starter-prometheus</id>
@@ -19,12 +15,10 @@
 			</snapshots>
 		</repository>
 	</repositories>
-```
-
-2. Включаем спомощью аннотации @EnablePrometheus
-
-```
-<dependencies>
+	
+ ...
+	
+	<dependencies>
  ...
 		<dependency>
 			<groupId>ru.vyukov</groupId>
@@ -33,16 +27,34 @@
 		</dependency>
 ...
 </dependencies>
-
 ```
 
+2. Add annotation to enable **@EnablePrometheus**
 
-```
-@EnableFeignClients
+
+
+```java
+**@EnableFeignClients**
 @SpringBootApplication
 public class SpringBootApplication {
 ....
 }
 
 ```
+
+
+## Russian
+Это реализация metrics endpoint для Spring Boot Actuator в текстовом формате применяемов в Prometheus. 
+
+Экспортирует все зарегистрированные метрики
+Возвращает HTTP Status 200 если health check в статусе UP и 500 если в статусе down или unknown. Это используется Prometheus для определения состояния.
+
+
+Принятые правила именовая метрик отличаются в spring и prometheus, поэтому я слегда модифицировал их в этом endpoint.
+Пример:
+К heap дописаны единицы изменения, в результате метрика heap называется  heap_bytes.
+Использовать рекомендации prometheus собирая метрики в _total смысла не вижу, документация spring станет неудобна.   
+
+Чтобы отключить или изменить это поведение нужно определить свой экземпляр PrometeusMetricNameConverter. Реализацию текущего поведения можно найти в DefaultPrometeusMetricNameConverter
+
 
