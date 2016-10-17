@@ -58,3 +58,18 @@ public class SpringBootApplication {
 Чтобы отключить или изменить это поведение нужно определить свой экземпляр PrometeusMetricNameConverter. Реализацию текущего поведения можно найти в DefaultPrometeusMetricNameConverter
 
 
+
+
+## English
+This is the implementation of metrics endpoint for Spring Boot Actuator in the text format applied in Prometheus.
+
+It exploits all the registered metrics.
+
+It returns HTTP Status 200 if health check is in the status UP and 500 if it is in the status down or unknown. It is used in Prometheus to identify the status.
+
+The accepted rules of naming the metrics are different in Spring and Prometheus, that’s why I’ve slightly modified them in this endpoint. For example, there are some added units to “heap”, as a result, the metric heap is called heap_bytes.
+
+In order to turn off or change this behaviour it is necessary to define your instance of PrometeusMetricNameConverter. It’s possible to find the implementation of the current behaviour in DefaultPrometeusMetricNameConverter.
+
+
+
