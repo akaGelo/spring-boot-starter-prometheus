@@ -48,15 +48,16 @@ public class SpringBootApplication {
 
 Экспортирует все зарегистрированные метрики.
 
-Возвращает **HTTP Status 200 если health check в статусе UP** и 500 если в статусе down или unknown. Это используется Prometheus для определения состояния.
+Возвращает **HTTP Status 200 если health check в статусе UP** и **500 если в статусе down или unknown**. Это используется Prometheus для определения состояния.
 
 
-Принятые правила именовая метрик отличаются в spring и prometheus, поэтому я слегда модифицировал их в этом endpoint.
+Принятые правила именовая метрик отличаются в Spring и Prometheus, поэтому я слегда модифицировал их в этом endpoint.
+
 Пример:
-К "heap" дописаны единицы изменения, в результате метрика heap называется  heap_bytes.
+К "heap" дописаны единицы изменения, в результате метрика **heap** называется  **heap_bytes**.
 Использовать рекомендации prometheus собирая метрики в _total смысла не вижу, документация spring станет неудобна.   
 
-Чтобы отключить или изменить это поведение нужно определить свой экземпляр PrometeusMetricNameConverter. Реализацию текущего поведения можно найти в DefaultPrometeusMetricNameConverter
+Чтобы отключить или изменить это поведение нужно определить свой экземпляр **PrometeusMetricNameConverter**. Реализацию текущего поведения можно найти в DefaultPrometeusMetricNameConverter
 
 
 
@@ -66,11 +67,11 @@ This is the implementation of metrics endpoint for Spring Boot Actuator in the t
 
 It exploits all the registered metrics.
 
-It returns HTTP Status 200 if health check is in the status UP and 500 if it is in the status down or unknown. It is used in Prometheus to identify the status.
+It returns **HTTP Status 200 if health check is in the status UP** and **500 if it is in the status down or unknown**. It is used in Prometheus to identify the status.
 
-The accepted rules of naming the metrics are different in Spring and Prometheus, that’s why I’ve slightly modified them in this endpoint. For example, there are some added units to “heap”, as a result, the metric heap is called heap_bytes.
+The accepted rules of naming the metrics are different in Spring and Prometheus, that’s why I’ve slightly modified them in this endpoint. For example, there are some added units to "heap", as a result, the metric **heap** is called **heap_bytes**.
 
-In order to turn off or change this behaviour it is necessary to define your instance of PrometeusMetricNameConverter. It’s possible to find the implementation of the current behaviour in DefaultPrometeusMetricNameConverter.
+In order to turn off or change this behaviour it is necessary to define your instance of **PrometeusMetricNameConverter**. It’s possible to find the implementation of the current behaviour in DefaultPrometeusMetricNameConverter.
 
 
 
