@@ -1,9 +1,10 @@
 # spring-boot-starter-prometheus
 
+[![Maven Central](https://maven-badges.herokuapp.com/maven-central/ru.vyukov/spring-boot-starter-prometheus/badge.svg)](https://maven-badges.herokuapp.com/maven-central/ru.vyukov/spring-boot-starter-prometheus/)
 
 #Quick start
 
-1. dependency (maven central  coming soon)
+1. dependency
 ```xml
 	<repositories>
 		<repository>
